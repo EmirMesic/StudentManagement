@@ -17,19 +17,16 @@ public class StudentManagement {
 		return true;
 	}
 	
-	
-	
 	public void viewAllStudents() {
 		for (Student student : students) {
 			System.out.println(student.toString());
 		}
 	}
 	
-
 	public boolean viewStudentById(String id) {
 		for (Student student : students) {
 			System.out.println(id);
-			if(student.getStudentId().equals(id) || id.equals("x")) {
+			if(student.getStudentId().equals(id)) {
 				System.out.println(student.toString());
 				return true;
 			}
@@ -41,7 +38,6 @@ public class StudentManagement {
 		return false;
 	}
 	
-	
 	public boolean editStudentById(String studentId, String newFirstName, String newLastName, String newDob, String newIndexNumber) {
 		for (Student student : students) {
 			if(student.getStudentId().equals(studentId)) {
@@ -51,9 +47,6 @@ public class StudentManagement {
 				student.setDob(newDob);
 				student.setIndexNumber(newIndexNumber);
 				return true;
-			}
-			else {
-				System.out.println("Student doesn't exist ");
 			}	
 		}
 		return false;
@@ -61,11 +54,11 @@ public class StudentManagement {
 	
 	public void deleteStudentById(String id) {
 		for (Student student : students) {
-			if(student.getStudentId().equals(id)) {
+			if(student.getStudentId().equals(id) && students.size()>1) {
 				students.remove(student);
 			}
 			else {
-				System.out.println("Student doesn't exist ");
+				System.out.println("Student doesn't exist or last student can't be removed ");
 			}	
 		}
 	}

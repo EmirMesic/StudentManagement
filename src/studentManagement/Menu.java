@@ -45,8 +45,10 @@ public class Menu {
 				System.out.print("Input student's Id: ");
 				studentId = input.next();
 				while(!studentManagement.viewStudentById(studentId)) {
-					System.out.println("Student id: " + studentId + " does not exist please enter diferent student id: ");
-					studentId = input.next();
+					System.out.println("Student id: " + studentId + " does not exist please enter diferent student id (enter 0 to exit): ");
+					int exit = input.nextInt();
+					if (exit==0)
+						break;
 				}
 				break;
 
@@ -66,8 +68,10 @@ public class Menu {
 				indexNumber = input.next();
 				
 				while(!studentManagement.editStudentById(studentId, firstName, lastName, dob, indexNumber)) {
-					System.out.println("Student id: " + studentId + " does not exist please enter diferent student id :");
-					studentId = input.next();
+					System.out.println("Student id: " + studentId + " does not exist please enter diferent student id (enter 0 to exit):");
+					int exit = input.nextInt();
+					if (exit==0)
+						break;
 				}
 				break;
 
@@ -75,7 +79,11 @@ public class Menu {
 			case 5:
 				System.out.print("Input student's Id: ");
 				studentId = input.next();
-				studentManagement.deleteStudentById(studentId);
+				studentManagement.viewStudentById(studentId);
+				System.out.println("Are you shure you want to delete this student? (press '1' for Yes! )");
+				int answer = input.nextInt();
+				if(answer==1)
+					studentManagement.deleteStudentById(studentId);
 				break;
 
 			default:
@@ -88,7 +96,7 @@ public class Menu {
 
 	public void printMenu() {
 		System.out.print(
-				"\n1. Add new student \n2. View all students \n3. View student by Id \n4. Edit student \n5. Delete student \n0. Exit \n");
+				"\n1. Add new student \n2. View all students \n3. View student by Id \n4. Edit student by Id \n5. Delete student \n0. Exit \n");
 	}
 
 }
