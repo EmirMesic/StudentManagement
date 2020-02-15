@@ -1,19 +1,27 @@
 package studentManagement;
 
-import java.util.Date;
 
 public class Student {
 	private String studentId;
 	private String firstName;
 	private String lastName;
-	private Date dob;
+	private String dob;
 	private String indexNumber;
 	
 	public Student() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Student(String studentId, String firstName, String lastName, Date dob, String indexNumber ) {
+	public Student(String studentId, String firstName, String lastName, String dob, String indexNumber ) {
+		this.studentId = studentId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dob = dob;
+		this.indexNumber = indexNumber;
+	}
+
+	
+	public Student(String studentId, String firstName, String lastName, String indexNumber ) {
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -37,10 +45,10 @@ public class Student {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public Date getDob() {
+	public String getDob() {
 		return dob;
 	}
-	public void setDob(Date dob) {
+	public void setDob(String dob) {
 		this.dob = dob;
 	}
 	public String getIndexNumber() {
@@ -64,8 +72,7 @@ public class Student {
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "\nId: " + studentId + " Name: " + firstName + " " + lastName + "\nDate of Birth: " + dob + "\nIndex Number " + indexNumber;
 	}
 	
 

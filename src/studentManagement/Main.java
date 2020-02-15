@@ -3,7 +3,8 @@ package studentManagement;
 public class Main {
 
 	public static void main(String[] args) {
-		Menu.startMenu();
+		Menu menu = new Menu();
+		menu.startMenu();
 	}
 
 }
